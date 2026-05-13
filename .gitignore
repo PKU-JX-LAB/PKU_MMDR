@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Node / frontend
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Generated pipeline/eval artifacts
+output_*/
+pipeline/output_*/
+MMDR-Benchmark/eval/evaluation_runs/
+
+# Logs
+*.log
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Private query data (to be open-sourced after acceptance)
+MMR-Bench+/query_data/mmdr_topics101.jsonl
+MMR-Bench+/query_data/mmdr_sfq60.jsonl
+
