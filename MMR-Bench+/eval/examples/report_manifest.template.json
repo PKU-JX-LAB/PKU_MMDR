@@ -1,0 +1,21 @@
+{
+  "pairs": [
+    {
+      "pair_id": "topic-001",
+      "topic": "Language-based AI systems have grown rapidly in recent years",
+      "learnings_path": "../eval_data/topic-001/learnings.md",
+      "systems": [
+        {
+          "name": "ours",
+          "report_path": "../eval_data/topic-001/ours/report.md",
+          "images_dir": "../eval_data/topic-001/ours/report_images"
+        },
+        {
+          "name": "baseline",
+          "report_path": "../eval_data/topic-001/baseline/report.md",
+          "images_dir": "../eval_data/topic-001/baseline/report_images"
+        }
+      ]
+    }
+  ]
+}

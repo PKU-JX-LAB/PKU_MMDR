@@ -1,0 +1,30 @@
+{
+  "reports": [
+    {
+      "report_id": "topic-001-ours",
+      "pair_id": "topic-001",
+      "topic": "Language-based AI systems have grown rapidly in recent years",
+      "system": "ours",
+      "charts": [
+        {
+          "chart_id": "chart-0",
+          "spec_path": "../eval_data/topic-001/ours/chart_specs/chart-0.md",
+          "image_path": "../eval_data/topic-001/ours/chart_images/chart-0.png"
+        }
+      ]
+    },
+    {
+      "report_id": "topic-001-baseline",
+      "pair_id": "topic-001",
+      "topic": "Language-based AI systems have grown rapidly in recent years",
+      "system": "baseline",
+      "charts": [
+        {
+          "chart_id": "chart-0",
+          "spec_path": "../eval_data/topic-001/baseline/chart_specs/chart-0.md",
+          "image_path": "../eval_data/topic-001/baseline/chart_images/chart-0.png"
+        }
+      ]
+    }
+  ]
+}

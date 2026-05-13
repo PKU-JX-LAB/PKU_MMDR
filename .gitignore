@@ -32,6 +32,7 @@ MMDR-Benchmark/eval/evaluation_runs/
 .DS_Store
 .idea/
 .vscode/
+.claude/
 
 # Private query data (to be open-sourced after acceptance)
 MMR-Bench+/query_data/mmdr_topics101.jsonl
