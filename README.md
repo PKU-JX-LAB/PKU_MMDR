@@ -12,7 +12,7 @@ This repository contains a reproduction of the **Multimodal DeepResearcher** pap
 └── README.md
 ```
 
-***
+---
 
 ## 1. `pipeline` - Core Pipeline Reproduction
 
@@ -59,26 +59,26 @@ Phase 4: Chart Generation + Assembly (generate.py)
 
 ### Key Files
 
-| File | Purpose |
-| --- | --- |
-| `pipeline/main.py` | CLI entry point that connects all phases |
-| `pipeline/app.py` | Gradio web entry point with progress display and frontend sync |
-| `pipeline/core/config.py` | Central configuration for model names, API keys, hyperparameters, and image-pipeline switches |
-| `pipeline/core/llm_utils.py` | Unified LLM invocation layer for text and multimodal calls, with streaming and retries |
-| `pipeline/core/research.py` | Phase 1: iterative search, image extraction/filtering, and learning extraction |
-| `pipeline/core/image_metadata.py` | Base image metadata construction, including `figure_type` inference, dedup keys, and confidence scores |
-| `pipeline/core/image_enrichment_pipeline.py` | Five-stage image refinement funnel |
-| `pipeline/core/image_vision_metadata.py` | MLLM-based image analysis: download -> OCR -> evidence extraction |
-| `pipeline/core/plan.py` | Phase 2: outline + style guide generation, including format normalization |
-| `pipeline/core/exemplar.py` | FDV extraction from exemplar chart images into structured design specs |
-| `pipeline/core/router.py` | Outline parsing plus routing of learnings/images to each section |
-| `pipeline/core/prompt_builders.py` | Builds the LLM prompt for each section |
-| `pipeline/core/image_ranker.py` | Scores and ranks candidate images per section |
-| `pipeline/core/image_grounding_check.py` | Validates whether referenced image IDs are legal |
-| `pipeline/core/generate.py` | Phase 3 and 4 core: section drafting, Actor-Critic chart generation, and final assembly |
-| `pipeline/core/prompts.py` | All 11 system/user prompt pairs |
-| `pipeline/automate_pipeline.py` | Automatically syncs generated outputs to the Next.js frontend |
-| `pipeline/run_report_only.py` | Re-runs only report generation, skipping Research and Planning |
+| File                                           | Purpose                                                                                                  |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `pipeline/main.py`                           | CLI entry point that connects all phases                                                                 |
+| `pipeline/app.py`                            | Gradio web entry point with progress display and frontend sync                                           |
+| `pipeline/core/config.py`                    | Central configuration for model names, API keys, hyperparameters, and image-pipeline switches            |
+| `pipeline/core/llm_utils.py`                 | Unified LLM invocation layer for text and multimodal calls, with streaming and retries                   |
+| `pipeline/core/research.py`                  | Phase 1: iterative search, image extraction/filtering, and learning extraction                           |
+| `pipeline/core/image_metadata.py`            | Base image metadata construction, including `figure_type` inference, dedup keys, and confidence scores |
+| `pipeline/core/image_enrichment_pipeline.py` | Five-stage image refinement funnel                                                                       |
+| `pipeline/core/image_vision_metadata.py`     | MLLM-based image analysis: download -> OCR -> evidence extraction                                        |
+| `pipeline/core/plan.py`                      | Phase 2: outline + style guide generation, including format normalization                                |
+| `pipeline/core/exemplar.py`                  | FDV extraction from exemplar chart images into structured design specs                                   |
+| `pipeline/core/router.py`                    | Outline parsing plus routing of learnings/images to each section                                         |
+| `pipeline/core/prompt_builders.py`           | Builds the LLM prompt for each section                                                                   |
+| `pipeline/core/image_ranker.py`              | Scores and ranks candidate images per section                                                            |
+| `pipeline/core/image_grounding_check.py`     | Validates whether referenced image IDs are legal                                                         |
+| `pipeline/core/generate.py`                  | Phase 3 and 4 core: section drafting, Actor-Critic chart generation, and final assembly                  |
+| `pipeline/core/prompts.py`                   | All 11 system/user prompt pairs                                                                          |
+| `pipeline/automate_pipeline.py`              | Automatically syncs generated outputs to the Next.js frontend                                            |
+| `pipeline/run_report_only.py`                | Re-runs only report generation, skipping Research and Planning                                           |
 
 ### Key Innovations
 
@@ -150,16 +150,16 @@ The unified underlying environment variable is `MDR_ABLATION_MODE`, with these v
 
 ### Environment Variables
 
-| Variable | Description | Default |
-| --- | --- | --- |
-| `MDR_API_KEY` | OpenAI-compatible API key | _(required, no default)_ |
-| `MDR_BASE_URL` | Base API URL | `https://api.openai.com/v1` |
-| `MDR_ABLATION_MODE` | Ablation mode switch, commonly `none` / `section_generation` / `image_enrichment` | `none` |
-| `FIRECRAWL_API_KEY` | Firecrawl search API key | _(required for web search, no default)_ |
-| `MDR_TEXT_MODEL` | Text model | `gpt-4o-mini` |
-| `MDR_VISION_MODEL` | Vision model | `gpt-4o` |
-| `MDR_TEMPERATURE` | Generation temperature | `0.7` |
-| `MDR_RETRIES` | LLM retry count | `3` |
+| Variable              | Description                                                                             | Default                                   |
+| --------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `MDR_API_KEY`       | OpenAI-compatible API key                                                               | _(required, no default)_                |
+| `MDR_BASE_URL`      | Base API URL                                                                            | `https://api.openai.com/v1`             |
+| `MDR_ABLATION_MODE` | Ablation mode switch, commonly `none` / `section_generation` / `image_enrichment` | `none`                                  |
+| `FIRECRAWL_API_KEY` | Firecrawl search API key                                                                | _(required for web search, no default)_ |
+| `MDR_TEXT_MODEL`    | Text model                                                                              | `gpt-4o-mini`                           |
+| `MDR_VISION_MODEL`  | Vision model                                                                            | `gpt-4o`                                |
+| `MDR_TEMPERATURE`   | Generation temperature                                                                  | `0.7`                                   |
+| `MDR_RETRIES`       | LLM retry count                                                                         | `3`                                     |
 
 ### Output Directory Structure
 
@@ -180,7 +180,7 @@ output_{topic}/
 └── final_report.md            # Final multimodal report
 ```
 
-***
+---
 
 ## 2. `MMR-Bench+` - Benchmark Dataset
 
@@ -194,18 +194,18 @@ output_{topic}/
 
 This set covers English research topics across **12 domains**:
 
-| Domain | Example Topic |
-| --- | --- |
-| Technology & Media | *Since 2010, the training computation of notable AI systems has doubled every six months* |
-| Agriculture & Food | *Global cereal production has grown much faster than population* |
-| Healthcare | *Obesity rates have increased on every continent* |
-| Energy | *Why did renewables become so cheap so fast?* |
-| Climate & Environment | *Which countries have contributed the most to historical CO2 emissions?* |
-| Population | *Global average life expectancy has more than doubled since 1900* |
-| Education | *Nearly half of teenagers globally cannot read with comprehension* |
-| Economy & Work | *Is globalization an engine of economic development?* |
-| Travel | *Global sales of combustion engine cars have peaked* |
-| Public Sector | *Public social spending has increased very substantially in the 20th century* |
+| Domain                | Example Topic                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| Technology & Media    | *Since 2010, the training computation of notable AI systems has doubled every six months* |
+| Agriculture & Food    | *Global cereal production has grown much faster than population*                          |
+| Healthcare            | *Obesity rates have increased on every continent*                                         |
+| Energy                | *Why did renewables become so cheap so fast?*                                             |
+| Climate & Environment | *Which countries have contributed the most to historical CO2 emissions?*                  |
+| Population            | *Global average life expectancy has more than doubled since 1900*                         |
+| Education             | *Nearly half of teenagers globally cannot read with comprehension*                        |
+| Economy & Work        | *Is globalization an engine of economic development?*                                     |
+| Travel                | *Global sales of combustion engine cars have peaked*                                      |
+| Public Sector         | *Public social spending has increased very substantially in the 20th century*             |
 
 Data format:
 
@@ -219,12 +219,12 @@ Data format:
 
 This set covers high-difficulty Chinese research topics in **four major domains**, and each topic **explicitly requires citations to original paper figures**:
 
-| Domain | Count | Difficulty | Examples |
-| --- | --- | --- | --- |
-| AI & Machine Learning | 15 | medium~hard | *GRPO variant comparison, MoE evolution, RAG architecture routes* |
-| Systems & Hardware | 10 | medium~hard | *AI training-cluster interconnects, HBM evolution, chiplet design* |
-| Biomedicine & Health | 5 | medium~hard | *AlphaFold evolution, CRISPR editing comparison, CAR-T manufacturing* |
-| More domains | 30 | medium~hard | *Including quantum error correction, optical interconnects, liquid cooling, and more* |
+| Domain                | Count | Difficulty  | Examples                                                                                |
+| --------------------- | ----- | ----------- | --------------------------------------------------------------------------------------- |
+| AI & Machine Learning | 15    | medium~hard | *GRPO variant comparison, MoE evolution, RAG architecture routes*                     |
+| Systems & Hardware    | 10    | medium~hard | *AI training-cluster interconnects, HBM evolution, chiplet design*                    |
+| Biomedicine & Health  | 5     | medium~hard | *AlphaFold evolution, CRISPR editing comparison, CAR-T manufacturing*                 |
+| More domains          | 30    | medium~hard | *Including quantum error correction, optical interconnects, liquid cooling, and more* |
 
 Data format:
 
@@ -238,7 +238,7 @@ Data format:
 
 This directory stores outputs from baseline models such as `TongyiDeepresearch-30B-A3B` for comparison and evaluation.
 
-***
+---
 
 ## 3. Evaluation - Automatic Evaluation Framework
 
@@ -250,31 +250,31 @@ This directory stores outputs from baseline models such as `TongyiDeepresearch-3
 
 **Report evaluation (5 dimensions, scores 1-5):**
 
-| Dimension | What It Measures |
-| --- | --- |
-| Informativeness & Depth | Content richness and detail density |
-| Coherence & Organization | Structural organization and text-figure integration |
-| Verifiability | Citations and evidence support |
-| Visualization Quality | Chart design quality |
-| Visualization Consistency | Style consistency across charts |
+| Dimension                 | What It Measures                                    |
+| ------------------------- | --------------------------------------------------- |
+| Informativeness & Depth   | Content richness and detail density                 |
+| Coherence & Organization  | Structural organization and text-figure integration |
+| Verifiability             | Citations and evidence support                      |
+| Visualization Quality     | Chart design quality                                |
+| Visualization Consistency | Style consistency across charts                     |
 
 **Chart evaluation (5 dimensions, scores 1-10):**
 
-| Dimension | What It Measures |
-| --- | --- |
-| Readability | Readability of titles, labels, and colors |
-| Layout | Layout quality, including overlap avoidance |
-| Aesthetics | Visual appeal |
-| Data Faithfulness | Fidelity to the data |
-| Goal Compliance | Whether the design specification is satisfied |
+| Dimension         | What It Measures                              |
+| ----------------- | --------------------------------------------- |
+| Readability       | Readability of titles, labels, and colors     |
+| Layout            | Layout quality, including overlap avoidance   |
+| Aesthetics        | Visual appeal                                 |
+| Data Faithfulness | Fidelity to the data                          |
+| Goal Compliance   | Whether the design specification is satisfied |
 
 ### Evaluation Modes
 
-| Mode | Command | Description |
-| --- | --- | --- |
-| Report Pairwise | `report` | A/B comparison evaluation using the original paper protocol |
-| Report Single | `report-single` | Absolute scoring for a single report |
-| Chart Evaluation | `chart` | Scores each chart, then aggregates by report/system |
+| Mode             | Command           | Description                                                 |
+| ---------------- | ----------------- | ----------------------------------------------------------- |
+| Report Pairwise  | `report`        | A/B comparison evaluation using the original paper protocol |
+| Report Single    | `report-single` | Absolute scoring for a single report                        |
+| Chart Evaluation | `chart`         | Scores each chart, then aggregates by report/system         |
 
 ### Running Evaluations
 
@@ -301,7 +301,7 @@ python MMR-Bench+/eval/paper_eval.py report-single `
   --prompt-file MMR-Bench+/eval/prompts/report_single_default.txt
 ```
 
-***
+---
 
 ## Dependencies
 
@@ -309,8 +309,3 @@ python MMR-Bench+/eval/paper_eval.py report-single `
 - `openai`, `requests`, `Pillow`, `numpy`, `selenium` (used for chart screenshot rendering)
 - Microsoft Edge (Selenium headless browser)
 - Node.js + npm (optional, for frontend presentation)
-
-## Acknowledgements
-
-This project is inspired by [DataNarrative](https://github.com/saidul-islam98/DataNarrative), [PPT Agent](https://github.com/icip-cas/PPTAgent), [deep-research](https://github.com/dzhng/deep-research), [node-DeepResearch](https://github.com/jina-ai/), and [manus](https://manus.im/).
-
